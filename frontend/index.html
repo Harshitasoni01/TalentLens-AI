@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TalentLens AI — Rank every candidate, read every resume</title>
+  <meta name="description"
+    content="TalentLens AI reads resumes the way a recruiter would and returns a ranked shortlist with the reasons behind every score." />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%233B5BFD'/%3E%3Ccircle cx='10' cy='11' r='3' fill='white'/%3E%3Ccircle cx='22' cy='11' r='3' fill='white'/%3E%3Ccircle cx='16' cy='23' r='3' fill='white'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+</head>
+
+<body class="landing">
+
+  <header class="l-nav">
+    <div class="l-nav-inner">
+      <a class="l-logo" href="index.html">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="6" cy="7" r="2" />
+            <circle cx="18" cy="7" r="2" />
+            <circle cx="12" cy="18" r="2" />
+            <path d="M7.6 8.4l3.3 7.6M16.4 8.4l-3.3 7.6M8 7h8" />
+          </svg>
+        </span>
+        TalentLens AI
+      </a>
+      <nav class="l-links" aria-label="Page sections">
+        <a href="#problem">Why it exists</a>
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+      </nav>
+      <div class="l-actions">
+        <a class="btn btn-ghost btn-sm" href="jobs.html">Open dashboard</a>
+        <a class="btn btn-primary btn-sm" href="create-job.html">Create a job</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="l-hero">
+      <div class="l-hero-grid">
+        <div class="l-hero-copy">
+          <p class="l-eyebrow">AI recruiting workspace</p>
+          <h1 class="l-title">Read every resume.<br />Rank every candidate.</h1>
+          <p class="l-sub">
+            TalentLens AI reads resumes the way a recruiter would: what people actually
+            built, not just which keywords they listed. You get a ranked shortlist,
+            with the reasons behind every score and the skills each person is missing.
+          </p>
+          <div class="l-cta-row">
+            <a class="btn btn-primary btn-lg" href="create-job.html">Create your first job</a>
+            <a class="btn btn-outline btn-lg" href="jobs.html">See existing jobs</a>
+          </div>
+          <p class="l-note">Works with PDF and DOCX resumes.</p>
+        </div>
+
+        <!-- Sample card: static example, not real data -->
+        <div class="mock" aria-label="Example of a ranked shortlist">
+          <div class="mock-top">
+            <div>
+              <span class="mock-label">Open role</span>
+              <strong class="mock-title">Backend Engineer</strong>
+            </div>
+            <span class="chip chip-brand">Sample data</span>
+          </div>
+
+          <div class="mock-row">
+            <span class="mock-rank">1</span>
+            <div class="mock-who">
+              <strong>Aditi Sharma</strong>
+              <span>Python · FastAPI · PostgreSQL · Docker</span>
+            </div>
+            <div class="mock-score tier-high"><b>92%</b><i><u style="width:92%"></u></i></div>
+          </div>
+          <div class="mock-row">
+            <span class="mock-rank">2</span>
+            <div class="mock-who">
+              <strong>Rohit Mehta</strong>
+              <span>Python · Django · PostgreSQL</span>
+            </div>
+            <div class="mock-score tier-high"><b>85%</b><i><u style="width:85%"></u></i></div>
+          </div>
+          <div class="mock-row">
+            <span class="mock-rank">3</span>
+            <div class="mock-who">
+              <strong>Karan Verma</strong>
+              <span>Python · Flask</span>
+            </div>
+            <div class="mock-score tier-mid"><b>61%</b><i><u style="width:61%"></u></i></div>
+          </div>
+
+          <div class="mock-foot">
+            <span class="mock-foot-label">Why #1</span>
+            <p>Shipped FastAPI services in production. Strong match on the core stack.</p>
+            <span class="chip chip-bad">Missing: AWS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="l-strip" id="problem">
+      <div class="l-wrap l-strip-grid">
+        <div>
+          <h2>Why screening breaks down</h2>
+          <p>Hiring teams hit the same three walls, and a keyword filter fixes none of them.</p>
+        </div>
+        <div class="l-problem">
+          <strong>Volume</strong>
+          <p>A single backend role can attract 1,000+ applicants. Nobody reads them all carefully.</p>
+        </div>
+        <div class="l-problem">
+          <strong>Inconsistency</strong>
+          <p>Two recruiters can read the same resume and reach two different verdicts.</p>
+        </div>
+        <div class="l-problem">
+          <strong>Keyword bias</strong>
+          <p>A tutorial project and production work look identical when you only count keywords.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="l-section" id="how">
+      <div class="l-wrap">
+        <p class="l-eyebrow center">How it works</p>
+        <h2 class="l-h2">From job post to shortlist in four steps</h2>
+        <ol class="l-steps">
+          <li>
+            <span class="l-step-num">1</span>
+            <h3>Describe the role</h3>
+            <p>Title, skills, experience range, location. This is what every candidate is measured against.</p>
+          </li>
+          <li>
+            <span class="l-step-num">2</span>
+            <h3>Upload resumes</h3>
+            <p>Drop in PDF or DOCX files, one or many.</p>
+          </li>
+          <li>
+            <span class="l-step-num">3</span>
+            <h3>AI reads and scores</h3>
+            <p>Each resume becomes a structured profile, then gets scored against the role.</p>
+          </li>
+          <li>
+            <span class="l-step-num">4</span>
+            <h3>Review the shortlist</h3>
+            <p>Open a ranked list with reasons and missing skills for every candidate.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="l-section alt" id="features">
+      <div class="l-wrap">
+        <p class="l-eyebrow center">Features</p>
+        <h2 class="l-h2">Built for the way recruiters actually work</h2>
+        <div class="l-feature-grid">
+          <article class="l-feature">
+            <h3>Resume understanding</h3>
+            <p>Skills, experience, projects, education and companies are pulled out of raw resume text.</p>
+          </article>
+          <article class="l-feature">
+            <h3>Reasoned scoring</h3>
+            <p>Every score from 0 to 100 comes with plain-language reasons you can read and question.</p>
+          </article>
+          <article class="l-feature">
+            <h3>Skill-gap view</h3>
+            <p>See exactly which required skills a candidate does not show, before the interview.</p>
+          </article>
+          <article class="l-feature">
+            <h3>Retry without losing work</h3>
+            <p>If the AI hits a limit mid-batch, finished candidates stay saved and the rest can be retried.</p>
+          </article>
+          <article class="l-feature">
+            <h3>Tier filters</h3>
+            <p>Switch between strong, moderate and weak matches, and search by name or skill.</p>
+          </article>
+          <article class="l-feature">
+            <h3>One workspace per role</h3>
+            <p>Every job keeps its own candidates, scores and processing status.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="l-final">
+      <div class="l-wrap">
+        <h2>Stop reading resumes top to bottom.</h2>
+        <p>Start at the strongest candidate instead.</p>
+        <div class="l-cta-row center">
+          <a class="btn btn-primary btn-lg" href="create-job.html">Create a job</a>
+          <a class="btn btn-outline btn-lg" href="jobs.html">Open dashboard</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="l-footer">
+    <div class="l-wrap l-footer-inner">
+      <span>TalentLens AI</span>
+      <span>FastAPI · PostgreSQL · Gemini 2.5 Flash · HTML, CSS and JavaScript</span>
+    </div>
+  </footer>
+
+</body>
+
+</html>

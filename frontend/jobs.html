@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jobs — TalentLens AI</title>
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%233B5BFD'/%3E%3Ccircle cx='10' cy='11' r='3' fill='white'/%3E%3Ccircle cx='22' cy='11' r='3' fill='white'/%3E%3Ccircle cx='16' cy='23' r='3' fill='white'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main">
+      <div class="main-inner">
+
+        <header class="page-head">
+          <div>
+            <h1>Job postings</h1>
+            <p class="page-sub">Every open role with its candidates and best scores.</p>
+          </div>
+          <div class="head-actions">
+            <a class="btn btn-primary" href="create-job.html">+ Create new job</a>
+          </div>
+        </header>
+
+        <div id="error" class="alert alert-error" hidden></div>
+
+        <section id="stats" class="stat-grid" hidden></section>
+
+        <section id="toolbar" class="toolbar" hidden>
+          <div class="search-box">
+            <span id="search-icon"></span>
+            <input id="search" type="search" placeholder="Search by title or location" aria-label="Search jobs" />
+          </div>
+          <div id="mode-pills" class="pills" role="group" aria-label="Filter by work mode"></div>
+        </section>
+
+        <section id="loading" class="job-grid">
+          <div class="skeleton">
+            <div class="sk-line w40"></div>
+            <div class="sk-line"></div>
+            <div class="sk-line w70"></div>
+          </div>
+          <div class="skeleton">
+            <div class="sk-line w40"></div>
+            <div class="sk-line"></div>
+            <div class="sk-line w70"></div>
+          </div>
+          <div class="skeleton">
+            <div class="sk-line w40"></div>
+            <div class="sk-line"></div>
+            <div class="sk-line w70"></div>
+          </div>
+        </section>
+
+        <section id="empty" class="card empty" hidden>
+          <h2>No job postings yet</h2>
+          <p>Create your first role, then upload resumes to get a ranked shortlist.</p>
+          <a class="btn btn-primary btn-lg" href="create-job.html">Create your first job</a>
+        </section>
+
+        <section id="no-match" class="empty" hidden>
+          <p>No jobs match your search or filter.</p>
+        </section>
+
+        <section id="grid" class="job-grid" hidden></section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/app-shell.js"></script>
+  <script src="js/jobs.js"></script>
+</body>
+
+</html>

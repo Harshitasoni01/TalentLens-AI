@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candidates — TalentLens AI</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%233B5BFD'/%3E%3Ccircle cx='10' cy='11' r='3' fill='white'/%3E%3Ccircle cx='22' cy='11' r='3' fill='white'/%3E%3Ccircle cx='16' cy='23' r='3' fill='white'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main">
+      <div class="main-inner">
+
+        <header id="job-head" class="page-head">
+          <div>
+            <h1>Candidates</h1>
+          </div>
+        </header>
+
+        <div id="page-error" class="alert alert-error" hidden></div>
+        <div id="banner" class="alert" hidden role="status"></div>
+
+        <div id="loading" class="loading-block">
+          <span class="spinner spinner-lg"></span><span>Loading candidates...</span>
+        </div>
+
+        <div id="content" hidden>
+
+          <!-- Score distribution -->
+          <section id="tier-card" class="card tier-card" hidden></section>
+
+          <!-- Processing queue: candidates not yet extracted or scored -->
+          <section id="queue-card" class="card queue" hidden></section>
+
+          <!-- No candidates at all -->
+          <section id="empty-card" class="card empty" hidden>
+            <h2>No candidates yet</h2>
+            <p>Upload resumes for this role to get a ranked shortlist with scores and reasons.</p>
+            <a id="empty-upload" class="btn btn-primary btn-lg" href="#">Upload resumes</a>
+          </section>
+
+          <!-- Candidates exist, but none are scored yet -->
+          <section id="none-ranked" class="empty" hidden>
+            <p>No candidates are ranked yet. Use the processing queue above to extract and score them.</p>
+          </section>
+
+          <!-- Ranked list -->
+          <section id="list-section" hidden>
+            <div class="toolbar list-toolbar">
+              <div class="search-box">
+                <span id="search-icon"></span>
+                <input id="search" type="search" placeholder="Search by name or skill" aria-label="Search candidates" />
+              </div>
+              <div id="tier-pills" class="pills" role="group" aria-label="Filter by match strength"></div>
+              <select id="sort" class="select" aria-label="Sort candidates">
+                <option value="score">Sort by score</option>
+                <option value="name">Sort by name</option>
+              </select>
+            </div>
+            <div id="no-results" class="empty" hidden><p>No candidates match your filters.</p></div>
+            <div id="cand-list" class="cand-list"></div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/pipeline.js"></script>
+  <script src="js/app-shell.js"></script>
+  <script src="js/candidates.js"></script>
+</body>
+</html>

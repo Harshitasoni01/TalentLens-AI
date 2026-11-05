@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload resumes — TalentLens AI</title>
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%233B5BFD'/%3E%3Ccircle cx='10' cy='11' r='3' fill='white'/%3E%3Ccircle cx='22' cy='11' r='3' fill='white'/%3E%3Ccircle cx='16' cy='23' r='3' fill='white'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main">
+      <div class="main-inner">
+
+        <header class="page-head">
+          <div>
+            <nav class="crumbs" aria-label="Breadcrumb">
+              <a href="jobs.html">Jobs</a><span>/</span><span id="crumb-title">Upload resumes</span>
+            </nav>
+            <h1>Upload resumes</h1>
+            <p class="page-sub">Drop in candidate resumes. TalentLens AI reads each one, builds a profile, and scores it
+              against this role.</p>
+          </div>
+        </header>
+
+        <div id="page-error" class="alert alert-error" hidden></div>
+
+        <div class="upload-layout">
+
+          <!-- LEFT: upload + progress -->
+          <div class="stack">
+
+            <!-- Step A: choose files -->
+            <section id="upload-panel" class="stack">
+              <label id="dropzone" class="dropzone" for="file-input">
+                <span class="dz-icon" id="dz-icon"></span>
+                <span class="dz-title">Drag and drop resumes here</span>
+                <span class="dz-sub">or click to browse your files</span>
+                <span class="dz-formats">PDF or DOCX &middot; several files at once</span>
+              </label>
+              <input id="file-input" type="file" accept=".pdf,.docx" multiple hidden />
+
+              <div id="file-box" class="card" hidden>
+                <div class="file-box-head">
+                  <span id="file-count"></span>
+                  <button id="clear-files" class="link-btn" type="button">Clear all</button>
+                </div>
+                <ul id="file-list" class="file-list"></ul>
+              </div>
+
+              <div id="form-error" class="alert alert-error" hidden role="alert"></div>
+
+              <button id="start-btn" class="btn btn-primary btn-lg btn-block" type="button" disabled>Process
+                resumes</button>
+              <p class="note">
+                Each resume takes roughly 15 seconds, because requests are paced to stay within the AI rate limit.
+                Keep this tab open while it runs.
+              </p>
+            </section>
+
+            <!-- Step B: live progress -->
+            <section id="pipeline-panel" class="card" hidden>
+              <h2 class="section-title" style="margin-bottom:1.1rem">Processing</h2>
+              <ol id="steps" class="timeline"></ol>
+            </section>
+
+            <!-- Step C: summary -->
+            <section id="summary-panel" class="card" hidden>
+              <div id="summary-alert" class="alert" style="margin-bottom:0"></div>
+              <div class="summary-stats">
+                <div class="sum-stat"><strong id="sum-uploaded">0</strong><span>uploaded</span></div>
+                <div class="sum-stat"><strong id="sum-extracted">0</strong><span>profiles extracted</span></div>
+                <div class="sum-stat"><strong id="sum-scored">0</strong><span>scored</span></div>
+              </div>
+              <div class="summary-actions">
+                <a id="view-link" class="btn btn-primary" href="#">View ranked candidates</a>
+                <button id="again-btn" class="btn btn-outline" type="button">Upload more resumes</button>
+              </div>
+            </section>
+          </div>
+
+          <!-- RIGHT: role snapshot -->
+          <aside class="snapshot">
+            <div id="snapshot-loading" class="skeleton">
+              <div class="sk-line w40"></div>
+              <div class="sk-line"></div>
+              <div class="sk-line w70"></div>
+            </div>
+            <div id="snapshot" class="card" hidden></div>
+          </aside>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/pipeline.js"></script>
+  <script src="js/app-shell.js"></script>
+  <script src="js/upload.js"></script>
+</body>
+
+</html>

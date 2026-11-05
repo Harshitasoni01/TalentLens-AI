@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create job — TalentLens AI</title>
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%233B5BFD'/%3E%3Ccircle cx='10' cy='11' r='3' fill='white'/%3E%3Ccircle cx='22' cy='11' r='3' fill='white'/%3E%3Ccircle cx='16' cy='23' r='3' fill='white'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main">
+      <div class="main-inner form-page">
+
+        <!-- FORM -->
+        <div id="form-view">
+          <header class="page-head">
+            <div>
+              <h1>Create a job posting</h1>
+              <p class="page-sub">Describe the role once. TalentLens AI scores every candidate against it.</p>
+            </div>
+          </header>
+
+          <form id="job-form" class="form-stack" novalidate>
+
+            <section class="card">
+              <h2 class="section-title">Core details</h2>
+              <p class="section-sub">The basics every posting needs.</p>
+              <div class="grid-2">
+                <div class="field" data-field="title">
+                  <label for="title">Job title <span class="req">*</span></label>
+                  <input id="title" type="text" placeholder="e.g. Backend Engineer" autocomplete="off" />
+                </div>
+                <div class="field" data-field="location">
+                  <label for="location">Location <span class="req">*</span></label>
+                  <input id="location" type="text" list="city-list" placeholder="e.g. Bangalore, India"
+                    autocomplete="off" />
+                  <datalist id="city-list">
+                    <option value="Bangalore, India"></option>
+                    <option value="Hyderabad, India"></option>
+                    <option value="Pune, India"></option>
+                    <option value="Mumbai, India"></option>
+                    <option value="Delhi NCR, India"></option>
+                    <option value="Chennai, India"></option>
+                    <option value="Indore, India"></option>
+                    <option value="Remote, India"></option>
+                  </datalist>
+                </div>
+                <div class="field" data-field="work_mode">
+                  <label for="work_mode">Work mode <span class="req">*</span></label>
+                  <select id="work_mode">
+                    <option value="Remote">Remote</option>
+                    <option value="Hybrid" selected>Hybrid</option>
+                    <option value="Onsite">Onsite</option>
+                  </select>
+                </div>
+                <div class="field" data-field="employment_type">
+                  <label for="employment_type">Employment type <span class="req">*</span></label>
+                  <select id="employment_type">
+                    <option value="Full-Time" selected>Full-Time</option>
+                    <option value="Internship">Internship</option>
+                    <option value="Contract">Contract</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+
+            <section class="card">
+              <h2 class="section-title">Experience required <span class="req">*</span></h2>
+              <p class="section-sub">Drag the sliders to set the range, in years.</p>
+              <div class="range-readout">
+                <strong id="exp-min-out">0</strong><span>–</span><strong id="exp-max-out">3</strong><span>years</span>
+              </div>
+              <div class="range-row">
+                <label for="exp-min">Min</label>
+                <input id="exp-min" type="range" min="0" max="10" step="1" value="0" />
+              </div>
+              <div class="range-row">
+                <label for="exp-max">Max</label>
+                <input id="exp-max" type="range" min="0" max="10" step="1" value="3" />
+              </div>
+            </section>
+
+            <section class="card">
+              <h2 class="section-title">Skills</h2>
+              <p class="section-sub">Type a skill and press Enter (or comma) to add it.</p>
+              <div class="field" data-field="required_skills">
+                <label>Required skills <span class="req">*</span></label>
+                <div id="required-skills"></div>
+              </div>
+              <div class="field">
+                <label>Preferred skills <span class="opt">(optional)</span></label>
+                <div id="preferred-skills"></div>
+              </div>
+            </section>
+
+            <section class="card">
+              <h2 class="section-title">Additional details <span class="opt">(optional)</span></h2>
+              <p class="section-sub">More context makes the matching sharper.</p>
+              <div class="grid-2" style="margin-bottom:1.1rem">
+                <div class="field">
+                  <label for="education">Education requirement</label>
+                  <select id="education">
+                    <option value="">Select an option</option>
+                    <option>No specific requirement</option>
+                    <option>Diploma</option>
+                    <option>Bachelor's Degree</option>
+                    <option>Master's Degree</option>
+                    <option>PhD</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="openings">Number of openings</label>
+                  <input id="openings" type="number" min="1" step="1" placeholder="e.g. 2" />
+                </div>
+                <div class="field" data-field="salary">
+                  <label for="salary-min">Salary range, minimum (₹ per year)</label>
+                  <input id="salary-min" type="number" min="0" step="10000" placeholder="e.g. 1200000" />
+                </div>
+                <div class="field" data-field="salary-max">
+                  <label for="salary-max">Salary range, maximum (₹ per year)</label>
+                  <input id="salary-max" type="number" min="0" step="10000" placeholder="e.g. 1800000" />
+                </div>
+                <div class="field">
+                  <label for="deadline">Application deadline</label>
+                  <input id="deadline" type="date" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="description">Job description</label>
+                <textarea id="description" rows="5"
+                  placeholder="Describe the role, responsibilities and what you are looking for..."></textarea>
+                <span class="hint">If you leave this empty, the title and required skills are used for matching.</span>
+              </div>
+            </section>
+
+            <div id="form-error" class="alert alert-error" hidden role="alert"></div>
+
+            <div class="form-actions">
+              <a class="btn btn-outline btn-lg" href="jobs.html">Cancel</a>
+              <button id="submit-btn" class="btn btn-primary btn-lg" type="submit">Create job</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- SUCCESS -->
+        <div id="success-view" class="card success-card" hidden>
+          <div class="success-mark" aria-hidden="true">&#10003;</div>
+          <h2>Job created</h2>
+          <p id="success-text"></p>
+          <div class="success-actions">
+            <a id="upload-link" class="btn btn-primary btn-lg" href="#">Upload resumes</a>
+            <a class="btn btn-outline btn-lg" href="jobs.html">Go to jobs</a>
+            <a class="btn btn-ghost btn-lg" href="create-job.html">Create another</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/app-shell.js"></script>
+  <script src="js/create-job.js"></script>
+</body>
+
+</html>
